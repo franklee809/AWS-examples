@@ -10,30 +10,32 @@
 			"username": "vscode",
 			"upgradePackages": "false",
 			"nonFreePackages": "true"
+		},
+		"ghcr.io/devcontainers/features/ruby:1": {
+			"version": "latest" // Or a specific version like "3.2"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "17" // Or "21", "11", etc.
 		}
 	},
-
-	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\"",
+  "postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && sudo apt update && sudo apt install -y openjdk-17-jdk && sudo apt install -y ruby && curl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\" && unzip awscliv2.zip && sudo ./aws/install",
 
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
-			"settings": { 
+			"settings": {
 				"terminal.integrated.defaultProfile.linux": "pwsh"
 			},
-			
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-vscode.powershell"
 			]
 		}
 	}
-
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
 }
