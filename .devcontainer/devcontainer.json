@@ -5,21 +5,15 @@
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/powershell:lts-debian-11",
 	"features": {
-		"ghcr.io/devcontainers/features/common-utils:2": {
-			"installZsh": "true",
-			"username": "vscode",
-			"upgradePackages": "false",
-			"nonFreePackages": "true"
-		},
-		"ghcr.io/devcontainers/features/ruby:1": {
-			"version": "latest" // Or a specific version like "3.2"
-		},
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "17" // Or "21", "11", etc.
-		}
+		"ghcr.io/devcontainers/features/common-utils:2": {},
+		"ghcr.io/devcontainers/features/ruby:1": {},
+		"ghcr.io/devcontainers/features/java:1": {},
+		"ghcr.io/devcontainers/features/terraform:1": {},
+		"ghcr.io/devcontainers/features/aws-cli:1": {}
 	},
-  "postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && sudo apt update && sudo apt install -y openjdk-17-jdk && sudo apt install -y ruby && curl \"https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\" && unzip awscliv2.zip && sudo ./aws/install",
+   "postCreateCommand": [
 
+  	],
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -30,7 +24,8 @@
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"ms-vscode.powershell"
+				"ms-vscode.powershell",
+				"HashiCorp.terraform"
 			]
 		}
 	}
