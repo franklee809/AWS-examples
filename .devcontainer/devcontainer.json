@@ -9,7 +9,8 @@
 		"ghcr.io/devcontainers/features/ruby:1": {},
 		"ghcr.io/devcontainers/features/java:1": {},
 		"ghcr.io/devcontainers/features/terraform:1": {},
-		"ghcr.io/devcontainers/features/aws-cli:1": {}
+		"ghcr.io/devcontainers/features/aws-cli:1": {},
+		"ghcr.io/devcontainers-extra/features/aws-cdk:2": {}
 	},
    "postCreateCommand": [
 
