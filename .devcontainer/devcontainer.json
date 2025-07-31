@@ -1,6 +1,6 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/powershell
-{
+{ 
 	"name": "PowerShell",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/powershell:lts-debian-11",
@@ -10,7 +10,8 @@
 		"ghcr.io/devcontainers/features/java:1": {},
 		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
-		"ghcr.io/devcontainers-extra/features/aws-cdk:2": {}
+		"ghcr.io/devcontainers-extra/features/aws-cdk:2": {},
+		"ghcr.io/flexwie/devcontainer-features/pulumi:1": {}
 	},
    "postCreateCommand": [
 

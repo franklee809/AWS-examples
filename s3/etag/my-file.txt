@@ -1,0 +1,4 @@
+ding ding ding ding ding ding
+// This is a test file to demonstrate S3 ETag functionality.
+// The ETag is a hash of the file content, which can be used to verify integrity
+// or check if the file has changed.   
