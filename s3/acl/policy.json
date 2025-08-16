@@ -1,0 +1,16 @@
+{
+  "Owner": {
+    "ID": "99145849b8f5e7bf38372e0af5122f36dbc5a189c03f9d01e8dc7cacaf251733",
+    "DisplayName": "frank"
+  },
+  "Grants": [
+    {
+      "Grantee": {
+        "Type": "CanonicalUser",
+        "ID": "99145849b8f5e7bf38372e0af5122f36dbc5a189c03f9d01e8dc7cacaf251733",
+        "DisplayName": "frank"
+      },
+      "Permission": "FULL_CONTROL"
+    }
+  ]
+}

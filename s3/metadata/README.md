@@ -7,7 +7,7 @@ aws s3 mb s3://metadata--fun-ab-1232
 
 ### Create a new file 
 
-
+ 
 echo 'Hello Mars' > hello.txt
 
 ### Upload file with metadata
