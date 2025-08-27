@@ -30,3 +30,6 @@ aws s3api put-object --bucket encryption-frank-associate-1232 --key hello.txt --
 --sse-customer-key $BASE_64_ENCODED_KEY \
 --sse-customer-key-md5 $MD5_VALUE
   
+
+### CLeanup 
+aws s3 rb s3://encryption-frank-associate-1232 --force
