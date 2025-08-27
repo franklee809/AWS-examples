@@ -14,5 +14,9 @@ echo "Hello World" > hello.txt
 bundle exec ruby encrypt.rb
 
 
+### Check the file headers 
+aws s3api head-object --bucket sse-client-frank-solution-architect-0032 --key hello.txt
+
+
 ### Clean up
 aws s3 rb s3://sse-client-frank-solution-architect-0032 --force
