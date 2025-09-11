@@ -59,4 +59,12 @@ aws sts get-caller-identity --profile assumed
 
 ```sh
 aws cloudformation delete-stack --stack-name my-sts-fun-stack
+
+aws iam delete-user-policy --user-name Bob --policy-name assumeRolePolicy
+
+aws iam delete-access-key --access-key-id AKIAWOY4PGTOPY7WSGDH --user-name Bob
+
+aws iam delete-login-profile --user-name Bob
+
+aws iam delete-user --user-name Bob
 ```
