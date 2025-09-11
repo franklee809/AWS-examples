@@ -8,7 +8,7 @@ aws iam create-access-key \
     --user-name Bob \
     --output table
 
-aws configure 
+aws configure --profile bob
 
 input the access and secret key
 ```

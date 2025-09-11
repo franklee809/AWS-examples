@@ -23,12 +23,20 @@ Resources:
                 #   - s3.amazonaws.com
               Action:
                 - 'sts:AssumeRole'
+        # ManagedPolicyArns:
+        #   - 'arn:aws:iam::aws:policy/AmazonS3FullAccess'
         Path: /
         Policies:
           - PolicyName: s3access
             PolicyDocument:
               Version: "2012-10-17"
-              Statement:
+              Statement:  
+                - Effect: Allow
+                  Action:
+                    - 's3:List*'
+                  Resource:
+                    - !Sub 'arn:aws:s3:::*'
+
                 - Effect: Allow
                   Action: '*'
                   Resource: [
