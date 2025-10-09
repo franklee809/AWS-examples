@@ -23,13 +23,27 @@ aws ec2 describe-images \
 
 ```
 
+
+### Add entry 
+
+```bash
+aws ec2 create-network-acl-entry \
+  --network-acl-id acl-0731f82f20e36a61 \
+  --ingress \
+  --rule-number 100 \
+  --protocol tcp \
+  --port-range From=0,To=65535 \
+  --rule-action allow \
+  --cidr-block 175.137.59.124/32 \ 
+  --rule-action deny
+```
+
 ### Validate the template yaml format  
 
 ```bash
 aws cloudformation validate-template --template-body  file:///root/AWS-examples/vpc/nacl/template.yml 
 
 ```
-
 
 
 ### Execute the stack cloudformation
