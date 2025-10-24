@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Launch a simple ec2 for use with testing VPCs
+Parameters:
+  InstanceType: 
+    Type: String
+    Default: t2.micro
+  ImageId: 
+    Type: String
+    Default: ami-0ab641e86c39b926a
+  SubnetId: 
+    Type: String  
+    Default: subnet-04acb7a0dd3fe59d1
+  VPCId:
+    Type: String
+    Default: vpc-09b899b64818e8808
+Resources:
+  SSMRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement: 
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+        
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref SSMRole
+
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      IamInstanceProfile: !Ref EC2InstanceProfile
+      ImageId: !Ref ImageId
+      # SubnetId: !Ref SubnetId
+      InstanceType: !Ref InstanceType
+      # SecurityGroupIds:
+      #   - !GetAtt SG.GroupId
+      NetworkInterfaces: 
+        - AssociatePublicIpAddress: "true"
+          DeviceIndex: "0"
+          GroupSet: 
+            - !Ref SG
+          SubnetId: !Ref SubnetId
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          yum update -y
+          yum install -y httpd
+          systemctl start httpd
+          systemctl enable httpd
+  SG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow http to client host
+      VpcId: !Ref VPCId
+      SecurityGroupIngress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: -1
+          ToPort: -1
+          CidrIp: 0.0.0.0/0
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
