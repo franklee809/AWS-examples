@@ -10,5 +10,5 @@ aws cloudformation validate-template --template-body file:///root/code/AWS-examp
 aws cloudformation create-stack \
   --stack-name iam-policy-types \
   --template-body file:///root/code/AWS-examples/iam/types-of-policies/template.yml \
-  --capabilities CAPABILITY_IAM
+  --capabilities CAPABILITY_NAMED_IAM
 ```
