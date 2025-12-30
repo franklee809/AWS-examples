@@ -9,6 +9,7 @@ aws cloudformation validate-template --template-body file:///root/code/AWS-examp
 ```bash
 aws cloudformation create-stack \
   --stack-name iam-policy-types \
+  --region ap-southeast-1 \
   --template-body file:///root/code/AWS-examples/iam/types-of-policies/template.yml \
   --capabilities CAPABILITY_NAMED_IAM
 ```
