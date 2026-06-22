@@ -6,7 +6,7 @@
 	"image": "mcr.microsoft.com/powershell:lts-debian-11",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {},
-		"ghcr.io/devcontainers/features/ruby:1": {},
+		"ghcr.io/devcontainers/features/ruby:2": {},
 		"ghcr.io/devcontainers/features/java:1": {},
 		"ghcr.io/devcontainers/features/terraform:1": {},
 		"ghcr.io/devcontainers/features/aws-cli:1": {},
